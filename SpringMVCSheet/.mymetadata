@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="SpringMVCSheet"
+  id="myeclipse.1531017369457"
+  context-root="/SpringMVCSheet"
+  j2ee-spec="5.0"
+  archive="SpringMVCSheet.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

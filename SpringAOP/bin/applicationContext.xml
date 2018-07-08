@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+   <!-- bean definition & AOP specific configuration -->
+
+   <aop:config>
+    <aop:aspect id="log" ref="logging">
+    <!-- 改限定名就可以对特定的方法给建议 
+     <aop:pointcut expression="execution(* pers.zx.aop.Student.getName(..))" id="selectAll"/>
+      上面只对getName方法做建议
+    -->
+    <aop:pointcut expression="execution(* pers.zx.aop.*.*(..))" id="selectAll"/>
+    <aop:before method="beforeAdvice" pointcut-ref="selectAll"/>
+    <aop:after method="afterAdvice" pointcut-ref="selectAll"/>
+    <aop:after-returning method="afterReturningAdvice" pointcut-ref="selectAll" returning="retVal"/>
+    <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="selectAll" throwing="e"/>
+    </aop:aspect> 
+   </aop:config>
+   
+   <!-- definition for student bean -->
+   <bean id="student" class="pers.zx.aop.Student">
+   <property name="name" value="zx"/>
+   <property name="age" value="20"/>
+   </bean>
+   <!-- definition for log aspect -->
+   <bean id="logging" class="pers.zx.aop.Logging">
+   </bean>
+</beans>

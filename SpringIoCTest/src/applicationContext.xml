@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ <!--  
+ <bean id="ioctest" class="pers.zx.springioc.IoCTest">
+  <property name="message" value="Hello World,ZX!"/>
+  </bean>
+ -->
+ 
+ <!-- Bean 作用域 -->
+ <!--
+  <bean id="ioctest" class="pers.zx.springioc.IoCTest" scope="singleton">
+  </bean>
+   -->
+   <!-- 
+    <bean id="ioctest" class="pers.zx.springioc.IoCTest" scope="prototype">
+  </bean>
+    -->
+    
+   <!-- 生命周期 && 后置处理器-->
+   <!-- 
+    <bean id="ioctest" class="pers.zx.springioc.IoCTest" init-method="init" destroy-method="destory">
+  <property name="message" value="Hello World,ZX!"/>
+  </bean>
+  <bean class="pers.zx.springioc.InitIoCTest"/>
+    -->
+    
+    <!--继承  -->
+    <bean id="helloWorld" class="pers.zx.springioc2.Ioctest">
+      <property name="message1" value="Hello World!"/>
+      <property name="message2" value="Hello Second World!"/>
+   </bean>
+
+   <bean id="helloIndia" class="pers.zx.springioc2.IoctestIndia" parent="helloWorld">
+      <property name="message1" value="Hello India!"/>
+      <property name="message3" value="Namaste India!"/>
+   </bean>
+    
+
+</beans>
